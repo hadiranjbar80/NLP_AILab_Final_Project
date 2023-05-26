@@ -1,6 +1,6 @@
 import modules.speech_recognizer as s
 
-user_choice= input('Which do you choose to enter your text "Speech or Entering a Text"(s/t)?')
+user_choice= input('Your text: [(S) for speech or (T) for type)').lower()
 
 if user_choice.lower() =='s':
     rec=s.recognizer()
