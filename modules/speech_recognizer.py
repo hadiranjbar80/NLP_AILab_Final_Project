@@ -8,6 +8,7 @@ Author:         Mohammed Hadi Ranjbar
 
 # Python third-party modules
 import speech_recognition as sr
+import modules.set_language as sl
 
 class recognizer:
     """
@@ -20,11 +21,11 @@ class recognizer:
         r=sr.Recognizer()
     
         with sr.Microphone() as source:                                                                       
-            print('Speak: ')
+            print('Speak(Say Q to quit): ')
             audio=r.listen(source)
 
         try:
-           return r.recognize_google(audio)
+           return r.recognize_google(audio, language=sl.get_source_laguage())
         except sr.UnknownValueError:
             error_checker=True
             return 'Could not understand audio'

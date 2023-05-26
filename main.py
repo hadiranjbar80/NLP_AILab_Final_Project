@@ -6,13 +6,13 @@ import modules.translator.constant as constant
 
 sl.keyboard.on_press(callback=sl.set_source_language)
 
-input('Enter language: ')
+input('Enter source language: ')
 
 
 input("Next ->")
 
 sl.keyboard.on_press(callback=sl.set_target_language)
-input('Enter language: ')
+input('Enter target language: ')
 
 
 print("Source:", sl.get_source_laguage(), "Target:", sl.get_target_laguage())
@@ -25,15 +25,17 @@ if len(sl.get_source_laguage())!=0 and len(sl.get_target_laguage())!=0:
             text=input('Enter your text(Enter Q to quit): ')
             if text=='q':
                 break
-            print(translator.translate(text, constant.LANGUAGES[sl.get_target_laguage()], constant.LANGUAGES[sl.get_source_laguage()]))
+            print(translator.translate(text, sl.get_target_laguage(),
+                                       sl.get_source_laguage()))
     elif user_choice.lower() =='s':
         translator = Translator.Translator()
         rec=s.recognizer()
-        text=calculated_text=rec.recognize()
-        print(f"You said {calculated_text}")
         while True:
+            text=rec.recognize()
             if text=='q':
                 break
-            print(translator.translate(text))
+        
+            print(translator.translate(text,print(translator.translate(text, sl.get_target_laguage(),
+                                       sl.get_source_laguage()))))
 
     
