@@ -3,13 +3,21 @@ import modules.set_language as sl
 import modules.translator.Translator as Translator
 import modules.translator.constant as constant
 
-input('Enter language: ')
-input("")
-input("")
-print(sl.get_selected_laguage())
 
-if len(sl.get_selected_laguage())!=0:
-    target_lang=input('Enter the target language: ')
+sl.keyboard.on_press(callback=sl.set_source_language)
+
+input('Enter language: ')
+
+
+input("Next ->")
+
+sl.keyboard.on_press(callback=sl.set_target_language)
+input('Enter language: ')
+
+
+print("Source:", sl.get_source_laguage(), "Target:", sl.get_target_laguage())
+
+if len(sl.get_source_laguage())!=0 and len(sl.get_target_laguage())!=0:
     user_choice= input('Your text: [(S) for speech or (T) for type): ').lower()
     if user_choice.lower() == 't':
         translator = Translator.Translator()
