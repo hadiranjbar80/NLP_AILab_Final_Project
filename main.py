@@ -34,7 +34,7 @@ if len(sl.get_source_laguage())!=0 and len(sl.get_target_laguage())!=0:
             if text=='q':
                 break
         
-            print(translator.translate(text,print(translator.translate(text, sl.get_target_laguage(),
-                                       sl.get_source_laguage()))))
+            print(translator.translate(text, sl.get_target_laguage(),
+                                        sl.get_source_laguage()))
 
     

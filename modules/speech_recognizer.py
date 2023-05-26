@@ -21,7 +21,7 @@ class recognizer:
         r=sr.Recognizer()
     
         with sr.Microphone() as source:                                                                       
-            print('Speak(Say Q to quit): ')
+            print('Listening... (Say Q to quit): ')
             audio=r.listen(source)
 
         try:
