@@ -9,6 +9,7 @@ Author:         Mohammed Hadi Ranjbar
 
 import keyboard
 import os
+import modules.translator.constant as lang_constants
 
 allowd = [
   'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
@@ -22,20 +23,23 @@ allowd = [
 
 typed_char=[]
 integreated_char = ""
-l1=["persian", "pashto", "persa","english","french"]
+languages=list(lang_constants.LANGUAGES.values())
 possible_choise = []
-
+_selected_language=''
 # Prints list of languages for use
 def get_language_list():
-    for i in range(len(l1)):
-        print(i, l1[i])
+    for i in range(len(languages)):
+        print(i, str(languages[i]).title())
 
-#
+def get_selected_laguage():
+    return _selected_language
+
 def set_language(key):
     global typed_char
     global integreated_char
     global l1
     global possible_choise
+    global _selected_language
     
     integreated_char = ""
     os.system("cls")
@@ -46,9 +50,14 @@ def set_language(key):
     elif key.name.lower() in allowd:
         typed_char.append(key.name)
 
+    elif key.name == 'enter':
+        _selected_language= possible_choise[0]
+        keyboard.unhook_all()
+        
+
     for char in typed_char:
         integreated_char += char
-        possible_choise = [lang for lang in l1 if lang.startswith(integreated_char)]
+        possible_choise = [lang for lang in languages if lang.startswith(integreated_char)]
 
     
     print("Choises:")
@@ -56,7 +65,9 @@ def set_language(key):
     for i in range(len(possible_choise)):
         print(i+1, "-", possible_choise[i])
 
-user_choice= input('Your text: [(S) for speech or (T) for type)').lower()
+    # if key.name == 'enter':
+    #     os.system("cls")
+    #     keyboard.unhook_all()
 
 get_language_list()
 

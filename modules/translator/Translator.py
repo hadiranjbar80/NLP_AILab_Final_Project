@@ -8,14 +8,13 @@ Author:         Mohammad Javad Rakhshani
 """
 
 # Project imports
-import constant
+import modules.translator.google_trans_new as google_trans_new
+import modules.translator.constant
 
 # Python third-party modules
 from langdetect import detect
 from langdetect import DetectorFactory
-from textblob import TextBlob
 import nltk
-import google_trans_new
 import time
 
 nltk.download('punkt'); # using the punkt tokenizer
@@ -50,7 +49,7 @@ class Translator:
             country_code = detect(sample_sentence)
             return country_code
         except:
-            return "en"
+            return defualt_country_code
 
     def translate(self, source_sentence: str, target_lang: str='auto', 
                   source_lang: str='auto') -> str:
@@ -108,3 +107,7 @@ class Translator:
         for i in range(len(translated_word_list)):
             print(i+1, tokenized_word_list[i] + ":", translated_word_list[i])
         
+
+t = Translator()
+
+print(t.translate("Hello world"))
