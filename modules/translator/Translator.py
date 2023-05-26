@@ -106,8 +106,3 @@ class Translator:
         tokenized_word_list = translate_words[1]
         for i in range(len(translated_word_list)):
             print(i+1, tokenized_word_list[i] + ":", translated_word_list[i])
-        
-
-t = Translator()
-
-print(t.translate("Hello world"))
