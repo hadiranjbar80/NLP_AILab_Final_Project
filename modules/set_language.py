@@ -32,7 +32,12 @@ def get_language_list():
         print(i, str(languages[i]).title())
 
 def get_selected_laguage():
-    return _selected_language
+    index = -1
+    for i in lang_constants.LANGUAGES.values():
+        index += 1
+        if i == _selected_language:
+            return list(lang_constants.LANGUAGES.keys())[index]
+    return "en"
 
 def set_language(key):
     global typed_char
