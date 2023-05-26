@@ -56,7 +56,7 @@ def set_language(key):
     for i in range(len(possible_choise)):
         print(i+1, "-", possible_choise[i])
 
-user_choice = input('Which do you choose to enter your text "Speech or Entering a Text"(s/t)?').lower()
+user_choice= input('Your text: [(S) for speech or (T) for type)').lower()
 
 get_language_list()
 
