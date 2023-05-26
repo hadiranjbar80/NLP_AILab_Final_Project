@@ -1,11 +1,12 @@
 """
 Gets a speech from user microphone and convert the speech to text for translation.
 
-AI:             Final Project
+AI lab:         Final Project
 Date:           May 2023
 Author:         Mohammed Hadi Ranjbar
 """
 
+# Python third-party modules
 import speech_recognition as sr
 
 class recognizer:
