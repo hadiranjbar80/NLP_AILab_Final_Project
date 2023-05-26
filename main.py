@@ -1,11 +1,13 @@
 import modules.speech_recognizer as s
+import modules.set_language as sl
 
-user_choice= input('Which do you choose to enter your text "Speech or Entering a Text"(s/t)?')
-
-if user_choice.lower() =='s':
+if sl.user_choice =='s':
     rec=s.recognizer()
     calculated_text=rec.recognize()
-    print(f"You said {calculated_text}")
-elif user_choice.lower() == 't':
-    givin_text=input('Enter your text\n')
-    print(givin_text)
+    if rec.error_checker ==False:
+        print(f'You said: {calculated_text}')
+    else:
+        print(calculated_text)
+elif sl.user_choice == 't':
+    input()
+    print('Set your langua')
