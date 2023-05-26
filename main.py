@@ -2,18 +2,21 @@ import modules.speech_recognizer as s
 import modules.set_language as sl
 import modules.translator.Translator as Translator
 import modules.translator.constant as constant
+import os
 
-input('Enter language: ')
+input('Enter source language: ')
 input("")
 input("")
-print(sl.get_selected_laguage())
+
+os.system('cls')
 
 if len(sl.get_selected_laguage())!=0:
     target_lang=input('Enter the target language: ')
     user_choice= input('Your text: [(S) for speech or (T) for type): ').lower()
     if user_choice.lower() == 't':
         translator = Translator.Translator()
-        print(sl.get_selected_laguage())
+        os.system('cls')
+        print(f'Source language: \nTarget language: {target_lang}')
         while True:
             text=input('Enter your text(Enter Q to quit): ')
             if text=='q':
