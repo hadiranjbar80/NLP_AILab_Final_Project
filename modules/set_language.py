@@ -70,6 +70,7 @@ def set_source_language(key):
         
 
     for char in typed_char:
+        os.system("cls")
         integreated_char += char
         possible_choise = [lang for lang in languages if lang.startswith(integreated_char)]
 
@@ -105,6 +106,7 @@ def set_target_language(key):
         
 
     for char in typed_char:
+        os.system("cls")
         integreated_char += char
         possible_choise = [lang for lang in languages if lang.startswith(integreated_char)]
 

@@ -21,12 +21,12 @@ if len(sl.get_source_laguage())!=0 and len(sl.get_target_laguage())!=0:
     user_choice= input('Your text: [(S) for speech or (T) for type): ').lower()
     if user_choice.lower() == 't':
         translator = Translator.Translator()
-        print(sl.get_selected_laguage())
         while True:
             text=input('Enter your text(Enter Q to quit): ')
             if text=='q':
                 break
-            print(translator.translate(text, constant.LANGUAGES[target_lang], constant.LANGUAGES[sl.get_selected_laguage()]))
+            print(translator.translate(text, sl.get_target_laguage(),
+                                       sl.get_source_laguage()))
     elif user_choice.lower() =='s':
         translator = Translator.Translator()
         rec=s.recognizer()
