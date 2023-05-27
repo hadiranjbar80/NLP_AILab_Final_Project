@@ -20,7 +20,6 @@ if len(sl.get_source_laguage())!=0 and len(sl.get_target_laguage())!=0:
     if user_choice.lower() == 't':
         translator = Translator.Translator()
         while True:
-            os.system("cls")
             text=input(f'Translate [{constant.LANGUAGES[sl.get_source_laguage()].title()} -> {constant.LANGUAGES[sl.get_target_laguage()].title()}] (Enter Q to quit): ')
             if text=='q':
                 break
