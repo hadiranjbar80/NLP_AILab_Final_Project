@@ -128,3 +128,30 @@ def set_target_language(key):
     for i in range(len(possible_choise)):
         print(i+1, "-", possible_choise[i])
 ```
+
+# speech_recognizer file
+
+## recognizer class
+
+### Class Methods
+
+#### recognize Method
+This method gets a speech from microphone and and generates the text of the given speech.
+
+```py
+def recognize(self):
+        r=sr.Recognizer()
+    
+        with sr.Microphone() as source:                                                                       
+            print('Listening... (Say Q to quit): ')
+            audio=r.listen(source)
+
+        try:
+           return r.recognize_google(audio, language=sl.get_source_laguage())
+        except sr.UnknownValueError:
+            error_checker=True
+            return 'Could not understand audio'
+        except sr.RequestError as e:
+            error_checker=True
+            return f'Could not request results: {0}'.format(e)
+```
